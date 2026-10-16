@@ -1,0 +1,12 @@
+node_modules/
+**/node_modules/
+.env
+**/.env
+server/firebase-service-account.json
+**/firebase-service-account.json
+**/google-services.json
+android-app/.gradle/
+android-app/**/build/
+crm-web/dist/
+crm-web/.vite/
+*.log
