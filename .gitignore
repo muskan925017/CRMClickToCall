@@ -10,3 +10,6 @@ android-app/**/build/
 crm-web/dist/
 crm-web/.vite/
 *.log
+# Android Studio / IntelliJ
+.idea/
+**/.idea/
