@@ -185,9 +185,10 @@ A successful request returns a response indicating that the backend accepted the
 
 The following files must not be committed to Git:
 
-- `.env`
-- `firebase-service-account.json`
-- `node_modules/`
+- .env
+- firebase-service-account.json
+- google-services.json
+- node_modules/
 
 Never publish Firebase service-account credentials or private tokens. If a service-account key is accidentally exposed, revoke it and generate a new one.
 
@@ -199,18 +200,24 @@ Never publish Firebase service-account credentials or private tokens. If a servi
 - The FCM token must be kept up to date if the Android device registration token changes.
 - The app opens the dialer but does not place calls automatically.
 
+
 ## AI Usage Notes
 
-AI assistance was used during development to help understand and troubleshoot the project, including:
+**1. Which AI tools did you use?**
 
-- Reviewing the application structure and setup steps.
-- Troubleshooting Firebase configuration and Gradle build issues.
-- Implementing and debugging the Express API and Firebase Admin SDK integration.
-- Implementing Android Firebase messaging and the notification's native dialer action.
-- Improving web dashboard request states and error handling.
-- Preparing project documentation and testing checklists.
+I used ChatGPT as an AI assistant during development to understand implementation steps, troubleshoot errors, review code changes, and prepare documentation.
 
-The generated code and suggested fixes were reviewed and tested during development. The working end-to-end flow was verified by sending a request from the web dashboard, receiving an Android notification, and opening the native dialer using the notification's Call action.
+**2. Where did AI help you the most?**
+
+AI helped most with troubleshooting the Firebase configuration and Gradle build issues, integrating the Express backend with Firebase Cloud Messaging, and implementing the Android notification action that opens the native dialer.
+
+**3. Describe one AI suggestion you changed, rejected, or improved. Why?**
+
+During testing, I verified that the browser request should only report that the backend accepted the request for sending, rather than claiming that the Android device definitely received it. This distinction is important because successful FCM message submission does not guarantee device delivery.
+
+**4. What would you improve with another two hours?**
+
+I would improve automated testing for invalid phone numbers, missing or invalid FCM tokens, Firebase send failures, and repeated call requests. I would also improve the setup documentation and test the application on additional Android devices.
 
 ## License
 
